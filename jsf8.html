@@ -1,0 +1,78 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="jsf8.css">
+<div>
+  <!-- Tab items -->
+  <div class="tabs">
+    <div class="tab-item active">
+      <i class="tab-icon fas fa-code"></i>
+      Model (M)
+    </div>
+    <div class="tab-item">
+      <i class="tab-icon fas fa-cog"></i>
+      View (V)
+    </div>
+    <div class="tab-item">
+      <i class="tab-icon fas fa-plus-circle"></i>
+      Controller (C)
+    </div>
+   
+    <div class="line"></div>
+  </div>
+
+  <!-- Tab content -->
+  <div class="tab-content">
+    <div class="tab-pane active">
+      <h2> Model (M)</h2>
+      <p>Model chứa một cấu trúc dữ liệu có chức năng lưu trữ toàn bộ các thông tin dữ liệu của một ứng dụng. Trong mô hình MVC thì Model đóng vai trò kết nối cho 2 thành phần View và Controller. 
+
+        Đối với Model được thiết lập như một cơ sở dữ liệu hoặc đơn giản hóa như một file XML thông thường. Khi thiết lập thành phần model thì lập trình viên cần đảm bảo các thao tác với cơ sở dữ liệu như các hoạt động xem, truy xuất hoặc xử lý dữ liệu trong ứng dụng.</p>
+    </div>
+    <div class="tab-pane">
+      <h2>View (V)</h2>
+      <p>View là thành phần liên quan đến giao diện của ứng dụng khi người dùng trải nghiệm. Thông qua dữ liệu của MVC , người dùng sẽ thực hiện các thao tác tìm kiếm, sử dụng thông tin website, ứng dụng.
+
+        Thành phần View được ứng dụng nhiều trong quá trình lập trình website và đây cũng là nơi mà các thành HTML tạo ra. Chức năng khác của thành phần View này chính là khả năng ghi nhận hành vi của người dùng để tương tác được với Controller.</p>
+    </div>
+    <div class="tab-pane">
+      <h2>Controller (C)</h2>
+      <p>Controller là bộ phận sẽ xử lý các yêu cầu khi người dùng thao tác trên ứng dụng thông qua thành phần view. Lúc này, Controller sẽ thực hiện truy vấn và xuất dữ liệu phù hợp với yêu cầu của người dùng. Và để làm được điều đó controller còn có cần phải nối được với model để lấy dữ liệu.</p>
+    </div>
+  
+  </div>
+</div>
+<script>
+    const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+
+const tabs = $$('.tab-item');
+const panels = $$('.tab-pane');
+
+
+const activeTab = $('.tab-item.active')
+const line = $('.line')
+
+
+line.style.left = activeTab.offsetLeft + 'px';
+line.style.width = activeTab.offsetWidth + 'px';
+tabs.forEach((tab, index) => {
+    const panel = panels[index];
+    
+    tab.onclick = function(){
+        $('.tab-item.active').classList.remove('active');
+        $('.tab-pane.active').classList.remove('active');
+
+
+        line.style.left = this.offsetLeft + 'px';
+        line.style.width = this.offsetWidth + 'px';
+
+        this.classList.add('active');
+        panel.classList.add('active');
+        
+        
+    }
+
+})
+</script>
